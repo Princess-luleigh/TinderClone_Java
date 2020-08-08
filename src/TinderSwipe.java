@@ -1,22 +1,34 @@
-/*public class TinderSwipe {
+import java.util.*;
 
-   
-    Profile profile;
+public class TinderSwipe {
 
-    //constructor
+    Database db;
+
     TinderSwipe() {
-
-    };
-
-    //method
-    public Profile assignUser(String choice) {
-        Database db = new Database;
-        db.getUserArray();
-        Profile[] profiles = db.getArrayByGender(choice);
-
-        Random ran = new Random();
-        int randomIndex = ran.nextInt(profiles.length)
+        this.db = new Database();
     }
 
+    public ArrayList<Profile> getProfilesByPreference(String preference) {
+        ArrayList<Profile> returnList;
+        db.readFromCSV("profiles.csv");
+        if(preference.toUpperCase().charAt(0) == 'M') {
+            returnList = db.getMaleProfiles();
+        }
+        else if(preference.toUpperCase().charAt(0) == 'F') {
+            returnList = db.getFemaleProfiles();
+        }
+        else {
+            returnList = db.getAllProfiles();
+        }
+
+        return returnList;
+    }
+
+    public void submitProfileToDB(Profile profile) {
+        this.db.WritetoCSV(profile);
+    }
+
+    public void closeConnectionToDB() {
+        this.db.closeFileWriting();
+    }
 }
-*/

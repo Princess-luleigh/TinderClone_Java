@@ -6,7 +6,7 @@ public class Person {
     private String gender;
     private String location;
     private String bio;
-
+    
     // constructor
     Person(String name, int age, String gender, String location, String bio) {
         this.name = name;

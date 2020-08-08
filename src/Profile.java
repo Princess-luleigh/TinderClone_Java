@@ -1,35 +1,52 @@
 public class Profile {
+
     //instance variables
-    Person p;
-    Image [] images = new Image[3];
+    private Person person;
+    private Image[] images;
 
     //constructor
-    Profile(Person p, Image [] images ) {
-         this.p = p;
-        this.images = images;
-        
+    Profile(Person person, Image[] images ) {
+         this.person = person;
+        this.images = images;  
 
     }
 
     //method
 
     //setters
-    public void setP(Person p) {
-        this.p = p;
+    
+    public void setPerson(Person person){
+        this.person = person;
     }
 
-    public void setImages(String Image [] images) {
+    public void setImages(Image[] images){
         this.images = images;
     }
 
+
     //getters
-    public Person getPerson(){
-        return this.p;
+    public Person getPerson() {
+        return this.person;
+    }
+    
+    public Image[] getImages() {
+        return this.images;
     }
 
-    public Image[] getImages() {
-        return  this.images;
+    public String toString(){
+
+        Person p = this.getPerson();
+        return "Name: " + p.getName() +
+                "\nAge: " + p.getAge() +
+                "\nBio: " + p.getBio() +
+                "\nGender: " + p.getGender() +
+                "\nImages: " +
+                "\nImage 1: " + this.getImages()[0].getUrl() +
+                "\nImage 2: " + this.getImages()[1].getUrl() +
+                "\nImage 3: " + this.getImages()[2].getUrl();
+
+                
+                
     }
 
 }
-*/
